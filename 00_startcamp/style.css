@@ -1,0 +1,671 @@
+/* CSS 변수 정의 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #3182f7; /* SSAFY 블루 */
+        --primary-light: #4593fc;
+        --primary-dark: #2272eb;
+        --secondary: #7c3aed; /* 보조 색상 (사용되지 않음) */
+        --accent: #f59e0b; /* 강조 색상 (사용되지 않음) */
+        --success: #10b981; /* 성공/완료 메시지 및 스페셜 카드 배경 */
+        --warning: #ef4444; /* 경고 색상 (사용되지 않음) */
+
+        /* 그레이 스케일 (라이트 모드 기준) */
+        --gray-50: #f8fafc; /* 라이트 모드: 게임 통계 배경 */
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-300: #cbd5e1;
+        --gray-400: #94a3b8;
+        --gray-500: #64748b;
+        --gray-600: #475569;
+        --gray-700: #334155;
+        --gray-800: #1e293b;
+        --gray-900: #0f172a;
+
+        --white: #ffffff; /* 라이트 모드: 게임 컨테이너, 카드 앞면 배경 */
+
+        /* 파스텔 카드 색상 (라이트 모드) */
+        --pastel-blue: #d0e6ff; /* 알고리즘 향상 */
+        --pastel-purple: #e0d0ff; /* 1학기 성적우수 */
+        --pastel-orange: #ffedd5; /* 취업 성공 */
+        --pastel-green: #d4f9e7; /* B형 취득 */
+
+        /* 디자인 시스템 변수 */
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+        --radius-xl: 20px;
+        --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+          0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+          0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+
+      /* 기본 HTML 및 바디 스타일 */
+      html {
+        /* 라이트 모드 기본 배경 */
+        background: linear-gradient(
+          135deg,
+          #f3f7fa 0%,
+          #f3f7fa 100%
+        ); /* 요청된 라이트 모드 뒷배경 */
+        min-height: 100vh; /* HTML이 전체 뷰포트 높이를 차지하도록 */
+        transition: background 0.3s ease; /* 배경 전환 애니메이션 */
+      }
+
+      body {
+        font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+          sans-serif;
+        min-height: 100vh; /* 바디도 전체 높이를 차지하도록 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        color: var(--gray-900);
+        -webkit-font-smoothing: antialiased;
+        background-color: transparent; /* 바디 배경을 투명하게 하여 HTML 배경이 보이도록 */
+      }
+
+      /* 게임 컨테이너 스타일 */
+      .game-container {
+        background: var(--white);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-xl);
+        padding: 32px;
+        max-width: 480px;
+        width: 100%;
+        position: relative;
+        border: 1px solid var(--gray-200);
+      }
+
+      /* 헤더 스타일 */
+      .header {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+
+      /* 제목 스타일 */
+      .title {
+        color: var(--gray-900);
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        letter-spacing: -0.025em;
+      }
+
+      /* 부제목 스타일 */
+      .subtitle {
+        color: var(--gray-500);
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      /* 게임 통계 섹션 스타일 */
+      .game-stats {
+        background: var(--gray-50);
+        border-radius: var(--radius-lg);
+        padding: 20px;
+        margin-bottom: 32px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        align-items: center;
+        border: 1px solid var(--gray-200);
+      }
+
+      /* 타이머 섹션 스타일 */
+      .timer-section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* 타이머 아이콘 스타일 */
+      .timer-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: var(--primary);
+        border-radius: var(--radius-md);
+        color: var(--white);
+      }
+
+      .timer-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* 타이머 정보 스타일 */
+      .timer-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .timer-label {
+        color: var(--gray-500);
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .timer {
+        color: var(--gray-900);
+        font-size: 20px;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.025em;
+      }
+
+      /* 시작 버튼 스타일 */
+      .start-button {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%
+        );
+        border: none;
+        border-radius: var(--radius-md);
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--white);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+      }
+
+      .start-button:hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark) 0%,
+          var(--primary) 100%
+        );
+      }
+
+      .start-button:active {
+        transform: translateY(0);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .start-button:disabled {
+        background: var(--gray-400);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+
+      .start-button svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      /* 게임 보드 스타일 */
+      .game-board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      /* 카드 스타일 */
+      .card {
+        aspect-ratio: 1; /* 가로세로 비율 1:1 유지 */
+        position: relative;
+        cursor: pointer;
+        border-radius: var(--radius-lg);
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        will-change: transform;
+      }
+
+      .card:hover:not(.matched) {
+        transform: translateY(-4px) scale(1.02);
+      }
+
+      .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transform-style: preserve-3d; /* 3D 변환 유지 */
+      }
+
+      .card.flipped .card-inner {
+        transform: rotateY(180deg); /* 카드 뒤집기 애니메이션 */
+      }
+
+      .card-front,
+      .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden; /* 뒷면 숨기기 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-lg);
+        font-weight: 600;
+        padding: 16px;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 1.4;
+        border: 2px solid var(--gray-200); /* 라이트 모드 카드 외곽선 */
+      }
+
+      .card-front {
+        background: var(--white);
+        box-shadow: var(--shadow-sm);
+        color: var(--gray-700); /* 카드 앞면 텍스트 색상 */
+      }
+
+      .card-front-icon {
+        width: 32px;
+        height: 32px;
+        color: var(--gray-400);
+        margin-bottom: 8px;
+      }
+
+      .card-front-text {
+        color: var(--gray-500);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .card-back {
+        /* 배경색은 JavaScript에서 동적으로 설정됩니다 */
+        box-shadow: var(--shadow-md);
+        transform: rotateY(180deg); /* 뒷면 초기 위치 */
+        font-size: 14px;
+        font-weight: 600;
+        border: 2px solid transparent; /* 테두리 색상은 동적으로 설정 */
+        color: var(--gray-800); /* 카드 뒷면 텍스트 색상 */
+        gap: 8px;
+      }
+
+      .card-back-icon {
+        width: 28px;
+        height: 28px;
+        color: var(--gray-700); /* 카드 뒷면 아이콘 색상 */
+      }
+
+      /* 스페셜 카드 스타일 */
+      .special-card .card-back {
+        background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+        color: var(--white); /* 스페셜 카드는 항상 흰색 텍스트 */
+        border: 2px solid var(--success);
+        font-weight: 700;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .special-card .card-back-icon {
+        color: var(--white); /* 스페셜 카드는 항상 흰색 아이콘 */
+      }
+
+      /* 매칭된 카드 스타일 */
+      .matched {
+        opacity: 0.7;
+        transform: scale(0.95);
+        pointer-events: none; /* 클릭 비활성화 */
+      }
+
+      .matched .card-back {
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* 완료 메시지 스타일 */
+      .completion-message {
+        background: var(--white);
+        border-radius: var(--radius-xl);
+        padding: 40px;
+        text-align: center;
+        box-shadow: var(--shadow-xl);
+        border: 1px solid var(--gray-200);
+        display: none; /* 초기에는 숨김 */
+        position: relative;
+        overflow: hidden;
+      }
+
+      .completion-message::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(16, 185, 129, 0.1),
+          transparent
+        );
+        animation: shimmer 2s infinite; /* 반짝임 효과 */
+      }
+
+      .completion-message.show {
+        display: block;
+        animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* 슬라이드 업 애니메이션 */
+      }
+
+      .completion-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+        border-radius: 50%;
+        margin-bottom: 24px;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .completion-icon svg {
+        width: 32px;
+        height: 32px;
+        color: var(--white);
+      }
+
+      .completion-title {
+        color: var(--gray-900);
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        letter-spacing: -0.025em;
+      }
+
+      .completion-subtitle {
+        color: var(--gray-500);
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 24px;
+      }
+
+      .time-result {
+        background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+        color: var(--white);
+        padding: 16px 24px;
+        border-radius: var(--radius-lg);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 20px;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        box-shadow: var(--shadow-md);
+        letter-spacing: -0.025em;
+      }
+
+      .time-result svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* 진행률 바 스타일 */
+      .progress-bar {
+        width: 100%;
+        height: 4px;
+        background: var(--gray-200);
+        border-radius: 2px;
+        overflow: hidden;
+        margin-bottom: 24px;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%
+        );
+        width: 0%;
+        transition: width 0.3s ease;
+        border-radius: 2px;
+      }
+
+      /* 애니메이션 키프레임 */
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .pulsing {
+        animation: pulse 1s infinite;
+      }
+
+      /* 반응형 디자인 */
+      @media (max-width: 640px) {
+        .game-container {
+          padding: 24px;
+          margin: 16px;
+        }
+
+        .title {
+          font-size: 20px;
+        }
+
+        .timer {
+          font-size: 18px;
+        }
+
+        .game-board {
+          gap: 12px;
+        }
+
+        .card-back {
+          font-size: 12px;
+          padding: 12px;
+        }
+
+        .game-stats {
+          grid-template-columns: 1fr;
+          gap: 16px;
+          text-align: center;
+        }
+
+        .start-button {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+
+      /* 접근성을 위한 포커스 상태 */
+      .card:focus,
+      .start-button:focus {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+
+      /* 다크모드 스타일 */
+      html.dark-mode {
+        /* HTML 태그에 다크 모드 배경 적용 */
+        background: linear-gradient(
+          135deg,
+          #172133 0%,
+          #172133 100%
+        ); /* 요청된 다크 모드 뒷배경 */
+      }
+
+      .dark-mode {
+        /* html.dark-mode 클래스가 있을 때의 변수 재정의 */
+        /* 다크 모드 그레이 스케일 재정의 */
+        --gray-50: #1e293b; /* 요청된 다크 모드 카드 안쪽 및 게임 컨테이너 배경 */
+        --gray-100: #161b22;
+        --gray-200: #21262d;
+        --gray-300: #30363d;
+        --gray-400: #444c56;
+        --gray-500: #64748b;
+        --gray-600: #6e7681;
+        --gray-700: #8b949e;
+        --gray-800: #adaeb4;
+        --gray-900: #c9d1d9; /* 밝은 텍스트 색상 */
+        --white: var(
+          --gray-50
+        ); /* 게임 컨테이너 및 카드 앞면 배경색을 새로 정의된 gray-50으로 설정 */
+
+        /* 다크 모드 파스텔 카드 색상 - 톤 통일 (롤백된 색상) */
+        --pastel-blue: #26364d; /* Dark muted blue */
+        --pastel-purple: #332d4d; /* Dark muted purple */
+        --pastel-orange: #4d3f26; /* Dark muted orange */
+        --pastel-green: #2d4d2d; /* Dark muted green */
+      }
+
+      /* 다크 모드 시 body의 텍스트 색상 등은 유지 */
+      html.dark-mode body {
+        color: var(--gray-900);
+      }
+
+      html.dark-mode .game-container {
+        background: var(--white); /* 이제 var(--gray-50)으로 설정됨 */
+        border: 1px solid #334155; /* 다크 모드 컨테이너 외곽선 */
+      }
+
+      /* 수정사항 2: 다크모드일때 소요시간과 게임시작 버튼을 감싸고 있는 박스 안쪽 색상을 #0F172A로 지정 */
+      html.dark-mode .game-stats {
+        background: #0f172a; /* 요청된 색상 적용 */
+        border: 1px solid #334155; /* 수정사항 1: 다크모드일때 구분선 색상과 통일 */
+      }
+
+      /* 수정사항 1: 다크모드일때 "카드를 뒤집어 같은 목표를 찾아보세요" 하단의 가로 구분선 색상을 #334155로 변경 */
+      html.dark-mode .progress-bar {
+        background: #334155; /* 요청된 색상 적용 */
+      }
+
+      html.dark-mode .card-front {
+        background: var(--white); /* 이제 var(--gray-50)으로 설정됨 */
+        border-color: #334155; /* 다크 모드 카드 외곽선 */
+        color: var(--gray-700); /* 다크모드 카드 앞면 텍스트 색상 */
+      }
+
+      html.dark-mode .card-front-icon {
+        color: var(--gray-500); /* 다크모드 카드 앞면 아이콘 색상 */
+      }
+
+      html.dark-mode .card-back {
+        /* 배경색은 JavaScript에서 동적으로 설정됩니다 */
+        border-color: #334155; /* 다크 모드 카드 뒷면 외곽선 */
+        color: var(--gray-900); /* 다크모드 카드 뒷면 텍스트 색상 (밝은 색) */
+      }
+
+      /* 다크모드에서 스페셜 카드 텍스트 색상 수정 */
+      html.dark-mode .special-card .card-back {
+        color: #f8fafc; /* 다크모드에서 밝은 색상으로 고정 */
+      }
+
+      /* 다크모드에서 스페셜 카드 아이콘 색상 수정 */
+      html.dark-mode .special-card .card-back-icon {
+        color: #f8fafc; /* 다크모드에서 밝은 색상으로 고정 */
+      }
+
+      html.dark-mode .completion-message {
+        background: var(--white); /* 이제 var(--gray-50)으로 설정됨 */
+        border: 1px solid #334155; /* 다크 모드 완료 메시지 외곽선 */
+      }
+
+      /* 다크모드 토글 버튼 */
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--white); /* 이제 var(--gray-50)으로 설정됨 */
+        border: 2px solid var(--gray-200);
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: var(--shadow-lg);
+        transition: all 0.2s ease;
+        z-index: 10;
+      }
+
+      .theme-toggle:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .theme-toggle svg {
+        width: 24px;
+        height: 24px;
+        color: var(--gray-700);
+        transition: all 0.2s ease;
+      }
+
+      html.dark-mode .theme-toggle {
+        background: var(--white); /* 이제 var(--gray-50)으로 설정됨 */
+        border-color: #334155; /* 다크 모드 토글 버튼 외곽선 */
+      }
+
+      html.dark-mode .theme-toggle svg {
+        color: var(--gray-700);
+      }
+
+      /* 다크모드에서 아이콘 변경 */
+      .theme-toggle .sun-icon {
+        display: block; /* 라이트 모드일 때 해 아이콘 표시 */
+      }
+
+      .theme-toggle .moon-icon {
+        display: none; /* 라이트 모드일 때 달 아이콘 숨김 */
+      }
+
+      html.dark-mode .theme-toggle .sun-icon {
+        display: none; /* 다크 모드일 때 해 아이콘 숨김 */
+      }
+
+      html.dark-mode .theme-toggle .moon-icon {
+        display: block; /* 다크 모드일 때 달 아이콘 표시 */
+      }
+
+      /* Reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .card-inner,
+        .card,
+        .completion-message.show {
+          transition: none;
+          animation: none;
+        }
+      }
