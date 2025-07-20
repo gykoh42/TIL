@@ -1,6 +1,6 @@
 # 🎯 SSAFY 목표 기억력 게임
 
-<table border="1">
+<table>
   <tr>
     <td align="center"><b>라이트 모드</b></td>
     <td align="center"><b>다크 모드</b></td>
