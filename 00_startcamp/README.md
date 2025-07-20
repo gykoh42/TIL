@@ -1,6 +1,18 @@
 # 🎯 SSAFY 목표 기억력 게임
 
+<table border="1">
+  <tr>
+    <td align="center"><b>라이트 모드</b></td>
+    <td align="center"><b>다크 모드</b></td>
+  </tr>
+  <tr>
+    <td><img width="100%" src="Screenshot 2025-07-20 at 8.59.25 PM.png" alt="screenshot1"></td>
+    <td><img width="100%" src="Screenshot 2025-07-20 at 9.22.06 PM.png" alt="screenshot2"></td>
+  </tr>
+</table>
+
 ## 📌 프로젝트 소개
+
 
 이 프로젝트는 SSAFY 교육생들을 위한 기억력 게임입니다. SSAFY의 핵심 목표들을 테마로 하여 사용자들이 게임을 즐기면서 자연스럽게 목표를 되새길 수 있도록 만들었습니다. 같은 목표를 가진 카드 쌍을 찾는 방식으로 진행되며, 사용자의 편의성을 위해 다크 모드 기능도 지원합니다.
 
@@ -43,4 +55,4 @@
 AI가 코드뿐만 아니라 문제 해결 과정과 원리에 대한 설명까지 제공해 줘서 많은 부분에서 학습할 수 있었습니다. 개발 과정이 단순 작업 이상의 배움의 기회로 다가와 제 개인적인 성장에도 큰 도움이 되었습니다.
 
 🔹 **Gemini CLI 활용**
-추가로 Gemini CLI를 활용하여 약 1000여 줄의 HTML 코드를 `style.css`와 `script.js` 파일로 분리하여 관리했습니다. 
+추가로 Gemini CLI를 활용하여 약 1000여 줄의 HTML 코드를 `style.css`와 `script.js` 파일로 분리하여 관리했습니다.
